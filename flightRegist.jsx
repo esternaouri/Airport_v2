@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import { Row, Col } from "antd";
 import UserTable from "./UserTable";
 import AddUserForm from "./AddUser";
+import Formy from "./form";
 
 export default function FlightRegist() {
   const usersData = [
@@ -44,12 +45,13 @@ export default function FlightRegist() {
     setcurrentUser(intialEditingUser);
   };
   return (
-    <div className="App">
-      <h1>CRUD App with Hooks</h1>
+    <div className="container-sm" >
+      <h1 style={{backgroundColor:"black", color:"white" ,textAlign:"center"}}>רישום טיסת ניווט למודיעין טייס</h1>
       <Row gutter={16}>
         <Col span={12}>
+          
           <Fragment>
-            <h2>{currentUser.id ? "Update user" : "Add USer"}</h2>
+            <h2>{currentUser.id ? "עדכון טיסה קיימת " : "רישום טיסה חדשה "}</h2>
             <AddUserForm
               addUser={addUser}
               editUser={currentUser}
@@ -57,9 +59,11 @@ export default function FlightRegist() {
               clearUser={clearUserEdit}
             />
           </Fragment>
+      <Formy></Formy>
+
         </Col>
         <Col span={12}>
-          <h2>View users</h2>
+          <h2 style={{textAlign: "center"}}>טיסות מעודכנות</h2>
           <UserTable
             users={users}
             onDeleted={onHandleDelete}
@@ -67,6 +71,8 @@ export default function FlightRegist() {
           />
         </Col>
       </Row>
+      <div class=" card-text  bg-success" ><p style={{color:"white" ,textAlign:"center"}}>הטיסות נשלחות למודיעין הטיס, מייל עם אישור טיסה ישלח אוטומטי . יש לשמור ברקוד לביקרות</p></div>
+      
     </div>
   );
 }
