@@ -1,8 +1,9 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Col, Divider } from 'antd';
+import { Card, Divider } from 'antd';
 import WeatherAPI from './weatherApi';
+import { Button } from 'antd/lib/radio';
             
 
 const Two =(props)=>{
@@ -12,41 +13,61 @@ const[isActive2, setActive2]=React.useState(false)
 const[isActive3, setActive3]=React.useState(false)
 const[isActive4, setActive4]=React.useState(false)
     return( 
-    <div>
-    <h1 style={{marginLeft: "40%"}}>Metar- Taf</h1>
-    <Divider
-    direction="vertical"
-    size="middle"
-    style={{
-      display: 'flex',
-    }}
-  > 
-   
-    <Col title="LLHZ METAR TAF" span={12} offset={6} onClick={()=>setActive1(!isActive1)}>
-    {isActive2&& <div >{ <WeatherAPI  city="Herzliya"></WeatherAPI>}</div>}
-    </Col>
-    <Col title="LLBG METAR TAF" span={12} offset={6} onClick={()=>setActive1(!isActive1)}>
-    {isActive3&& <div >{ <WeatherAPI  city="Tiberias"></WeatherAPI>}</div>}
-    </Col>
-    <Col title="LLIB METAR TAF" span={12} offset={6} onClick={()=>setActive1(!isActive1)}>
-    {isActive4&& <div >{ <WeatherAPI  city="tel-aviv"></WeatherAPI>}</div>}
-    </Col>
-    
-  </Divider>
-  <div class="d-flex flex-column">
-  <div class="p-2"> <Col title="LLHA METAR TAF" span={12} offset={6} onClick={()=>setActive1(!isActive1)}>
-    {isActive1&& <div >{ <WeatherAPI  city="haifa"></WeatherAPI>}</div>}
-    </Col></div>
-  <div class="p-2">Flex item 2</div>
-  <div class="p-2">Flex item 3</div>
+
+<div className='bg-success'>
+<h1 style={{backgroundColor:"black", color:"white",textAlign:"center"}}> Metar-Taf</h1>
+
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">LLHZ METAR TAF</h5>
+    <br></br>
+    <button class="btn btn-primary" onClick={()=>setActive1(!isActive1)}>{isActive1? "Less -":"More +"}</button>
+    {isActive1&& <p class="card-text" >{ <WeatherAPI  city="Herzliya"></WeatherAPI>}</p>}
+
+
+    <div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">LLHA METAR TAF</h5>
+    <br></br>
+    <button class="btn btn-primary" onClick={()=>setActive2(!isActive2)}>{isActive2? "Less -":"More +"}</button>
+    {isActive2&& <p class="card-text" >{ <WeatherAPI  city="haifa"></WeatherAPI>}</p>}
+
+  </div>
+
+  <div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">LLBG METAR TAF</h5>
+    <br></br>
+    <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "Less -":"More +"}</button>
+    {isActive3&& <p class="card-text" >{ <WeatherAPI  city="tel-aviv"></WeatherAPI>}</p>}
+
+  </div>
 </div>
-<div class="d-flex flex-column-reverse">
-  <div class="p-2">Flex item 1</div>
-  <div class="p-2">Flex item 2</div>
-  <div class="p-2">Flex item 3</div>
+
+
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">LLIB METAR TAF</h5>
+    <br></br>
+    <button type="button" class="btn btn-primary " onClick={()=>setActive4(!isActive4)}>{isActive4? "Less -":"More +"}</button>
+    {isActive4&& <p class="card-text" >{ <WeatherAPI  city="Tiberias"></WeatherAPI>}</p>}
+
+  </div>
 </div>
-    </div>
+
+
+</div>
+
+
+  </div>
+</div>
+
+</div>
+
+
+
     )
+
 
 }
 export default Two;
