@@ -31,7 +31,7 @@ const Formy = () => {
   }
   const handleSubmit = (event) => {
     console.log(event)
-
+    for(let i=0; i<=10; i++)
     event.preventDefault();
     //setAllflights(Allflights => [...Allflights, inputs]);
   }
