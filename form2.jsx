@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class Products extends React.Component {
+class Flights extends React.Component {
 
     constructor(props) {
       super(props);
   
-      //  this.state.products = [];
+      //  this.state.Flights = [];
       this.state = {};
       this.state.filterText = "";
-      this.state.products = [
+      this.state.Flights = [
         {
           id: 1,
           category: 'Sporting Goods',
@@ -53,9 +53,9 @@ class Products extends React.Component {
       this.setState({filterText: filterText});
     };
     handleRowDel(product) {
-      var index = this.state.products.indexOf(product);
-      this.state.products.splice(index, 1);
-      this.setState(this.state.products);
+      var index = this.state.Flights.indexOf(product);
+      this.state.Flights.splice(index, 1);
+      this.setState(this.state.Flights);
     };
   
     handleAddEvent(evt) {
@@ -69,8 +69,8 @@ class Products extends React.Component {
         time:"",
         fuel:""
       }
-      this.state.products.push(product);
-      this.setState(this.state.products);
+      this.state.Flights.push(product);
+      this.setState(this.state.Flights);
   
     }
 
@@ -82,9 +82,9 @@ class Products extends React.Component {
         name: evt.target.name,
         value: evt.target.value
       };
-      var products = this.state.products;
+      var Flights = this.state.Flights;
   
-      var newProducts = products.map(function(product) {
+      var newFlights = Flights.map(function(product) {
         for (var key in product) {
           if (key == item.name && product.id == item.id) {
             product[key] = item.value;
@@ -93,15 +93,16 @@ class Products extends React.Component {
         }
         return product;
       });
-      this.setState(newProducts);
-      console.log(this.state.products);
+      this.setState(newFlights);
+      console.log(this.state.Flights);
     };
     render() {
   
       return (
-        <div>
+        <div style={{width:"100%"
+        }}>
           <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
-          <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} products={this.state.products} filterText={this.state.filterText}/>
+          <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText}/>
         </div>
       );
   
@@ -114,9 +115,10 @@ class Products extends React.Component {
     }
     render() {
       return (
-        <div>
+        <div style={{width:"100%"
+      }}>
   
-          <input type="text" placeholder="Search..." value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
+          <input type="text" placeholder="חיפוש לפי שם טייס..." value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
   
         </div>
   
@@ -131,36 +133,32 @@ class Products extends React.Component {
       var onProductTableUpdate = this.props.onProductTableUpdate;
       var rowDel = this.props.onRowDel;
       var filterText = this.props.filterText;
-      var product = this.props.products.map(function(product) {
+      var product = this.props.Flights.map(function(product) {
         if (product.name.indexOf(filterText) === -1) {
           return;
         }
         return (<ProductRow onProductTableUpdate={onProductTableUpdate} product={product} onDelEvent={rowDel.bind(this)} key={product.id}/>)
       });
       return (
-        <div>
-  
-  
-        <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right">Add</button>
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th>שם טייס</th>
-                <th>אות קריאה מטוס</th>
-                <th>תאריך</th>
-                <th>יעד</th>
-                <th>זמן שיוט</th>
-                <th>דלק נצרך</th>
-
-              </tr>
-            </thead>
-  
-            <tbody>
+        <div style={{width:"100%"
+      }}>
+  <br></br>
+  <br></br>
+        <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right"> שדר טיסה חדשה למודיעין הטייס</button>
+        <br></br>
+        <br></br>
+<div class="card">
+          <table style={{display:"inline-flex",flexWrap: "wrap" }}>
+          
+         
+=  
+            <tbody cscope="row">
               {product}
   
             </tbody>
   
           </table>
+          </div>
         </div>
       );
   
@@ -220,8 +218,8 @@ class Products extends React.Component {
   
     render() {
       return (
-        <td>
-          <input type='text' name={this.props.cellData.type} id={this.props.cellData.id} value={this.props.cellData.value} onChange={this.props.onProductTableUpdate}/>
+        <td style={{display:"inline-flex",flexWrap: "wrap"}}>
+          <input type='text' placeholder= {this.props.cellData.type} name={this.props.cellData.type} id={this.props.cellData.id} value={this.props.cellData.value} onChange={this.props.onProductTableUpdate}/>
         </td>
       );
   
@@ -229,5 +227,5 @@ class Products extends React.Component {
   
   }
   
- export default Products  ;
+ export default Flights  ;
   
