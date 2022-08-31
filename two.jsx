@@ -15,30 +15,30 @@ const[isActive4, setActive4]=React.useState(false)
     return( 
 
 <div className='bg-success'>
-<h1 style={{backgroundColor:"black", color:"white",textAlign:"center"}}> Metar-Taf</h1>
+<h1 style={{backgroundColor:"black", color:"white",textAlign:"center"}}>🌨️🌤️ מזג אוויר ותנאי שיוט</h1>
 
 <div class="card w-75">
   <div class="card-body">
-    <h5 class="card-title">LLHZ METAR TAF</h5>
+    <h5 class="card-title">LLHZ METAR TAF/📣תחזית הרצליה</h5>
     <br></br>
-    <button class="btn btn-primary" onClick={()=>setActive1(!isActive1)}>{isActive1? "Less -":"More +"}</button>
+    <button class="btn btn-primary" onClick={()=>setActive1(!isActive1)}>{isActive1? "פחות... -":"עוד...  +"}</button>
     {isActive1&& <p class="card-text" >{ <WeatherAPI  city="Herzliya"></WeatherAPI>}</p>}
 
 
     <div class="card w-75">
   <div class="card-body">
-    <h5 class="card-title">LLHA METAR TAF</h5>
+    <h5 class="card-title">LLHA METAR TAF/ 📣תחזית חיפה</h5>
     <br></br>
-    <button class="btn btn-primary" onClick={()=>setActive2(!isActive2)}>{isActive2? "Less -":"More +"}</button>
+    <button class="btn btn-primary" onClick={()=>setActive2(!isActive2)}>{isActive2? "פחות... -":"עוד...  +"}</button>
     {isActive2&& <p class="card-text" >{ <WeatherAPI  city="haifa"></WeatherAPI>}</p>}
 
   </div>
 
   <div class="card w-75">
   <div class="card-body">
-    <h5 class="card-title">LLBG METAR TAF</h5>
+    <h5 class="card-title">LLBG METAR TAF/📣 תחזית בן גוריון </h5>
     <br></br>
-    <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "Less -":"More +"}</button>
+    <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "פחות... -":"עוד... +"}</button>
     {isActive3&& <p class="card-text" >{ <WeatherAPI  city="tel-aviv"></WeatherAPI>}</p>}
 
   </div>
@@ -47,9 +47,9 @@ const[isActive4, setActive4]=React.useState(false)
 
 <div class="card w-75">
   <div class="card-body">
-    <h5 class="card-title">LLIB METAR TAF</h5>
+    <h5 class="card-title">LLIB METAR TAF/📣 תחזית ראש פינה</h5>
     <br></br>
-    <button type="button" class="btn btn-primary " onClick={()=>setActive4(!isActive4)}>{isActive4? "Less -":"More +"}</button>
+    <button type="button" class="btn btn-primary " onClick={()=>setActive4(!isActive4)}>{isActive4? "פחות...  -":"עוד...  +"}</button>
     {isActive4&& <p class="card-text" >{ <WeatherAPI  city="Tiberias"></WeatherAPI>}</p>}
 
   </div>
