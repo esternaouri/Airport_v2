@@ -8,16 +8,17 @@ import FlightRegist from './flightRegist';
 
 function NavbarRoute() {
   return (
+    <div>
     <Router>
     <>
-     
+    
       <br />
       <Navbar bg="primary" variant="dark">
         <Container>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to ={"one"}>A.I.P Israel</Nav.Link>
-            <Nav.Link as={Link} to ={"two"} >Metar-Taf</Nav.Link>
-            <Nav.Link as={Link} to ={"flightRegist"} >Flight Registration</Nav.Link>
+            <Nav.Link as={Link} to ={"one"}>מידע חיוני לתעופה </Nav.Link>
+            <Nav.Link as={Link} to ={"two"} >מזג אוויר ותנאי שיוט</Nav.Link>
+            <Nav.Link as={Link} to ={"flightRegist"} >רישום טיסות צפויות</Nav.Link>
             
           </Nav>
         </Container>
@@ -36,6 +37,8 @@ function NavbarRoute() {
       </Routes>
     </div>
     </Router>
+
+    </div>
   );
 }
 
