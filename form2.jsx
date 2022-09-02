@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React, { Component } from 'react';
 
 class Flights extends React.Component {
@@ -12,37 +13,37 @@ class Flights extends React.Component {
         {
           id: 1,
           category: 'Sporting Goods',
-          price: '49.99',
+          destination: '49.99',
           qty: 12,
           name: 'אסתר'
         }, {
           id: 2,
           category: 'Sporting Goods',
-          price: '9.99',
+          destination: '49.99',
           qty: 15,
           name: 'נפתלי'
         }, {
           id: 3,
           category: 'Sporting Goods',
-          price: '29.99',
+          destination: '49.99',
           qty: 14,
           name: 'מוטי'
         }, {
           id: 4,
           category: 'Electronics',
-          price: '99.99',
+          destination: '99.99',
           qty: 34,
           name: 'עידן'
         }, {
           id: 5,
           category: 'Electronics',
-          price: '399.99',
+          destination: '399.99',
           qty: 12,
           name: 'נפתלי'
         }, {
           id: 6,
-          category: 'Electronics',
-          price: '199.99',
+          destination: 'Electronics',
+          destination: '49.99',
           qty: 23,
           name: 'נפתלי'
         }
@@ -52,6 +53,19 @@ class Flights extends React.Component {
     handleUserInput(filterText) {
       this.setState({filterText: filterText});
     };
+    filterbyDest(e) {
+      const basic=this.state.Flights
+      const result =  this.state.Flights.filter((item)=>item.destination==this.state.filterText2);
+      console.log(result)
+      this.setState({Flights: result});
+      if (this.state.filterText2==""){
+        this.setState({Flights: basic});
+      }
+    };
+    refreshPage() {
+      window.location.reload(false);
+    }
+
     handleRowDel(product) {
       var index = this.state.Flights.indexOf(product);
       this.state.Flights.splice(index, 1);
@@ -80,7 +94,7 @@ class Flights extends React.Component {
       var item = {
         id: evt.target.id,
         name: evt.target.name,
-        value: evt.target.value
+        value: evt.target.value,
       };
       var Flights = this.state.Flights;
   
@@ -101,6 +115,10 @@ class Flights extends React.Component {
       return (
         <div style={{width:"100%"
         }}>
+          <input type="text" placeholder="חיפוש לפי יעד ..."  onChange={(e)=>this.setState({filterText2 : e.target.value})}/>
+          <button  onClick={this.filterbyDest.bind(this)}>חפש לפי יעד</button>
+          <button onClick={this.refreshPage.bind(this)}>חזור</button>
+
           <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
           <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText}/>
         </div>
@@ -140,8 +158,8 @@ class Flights extends React.Component {
         return (<ProductRow onProductTableUpdate={onProductTableUpdate} product={product} onDelEvent={rowDel.bind(this)} key={product.id}/>)
       });
       return (
-        <div style={{width:"100%"
-      }}>
+        
+        <div style={{width:"100%"}}>
   <br></br>
   <br></br>
         <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right"> שדר טיסה חדשה למודיעין הטייס</button>
@@ -150,8 +168,6 @@ class Flights extends React.Component {
 <div class="card">
           <table style={{display:"inline-flex",flexWrap: "wrap" }}>
           
-         
-=  
             <tbody cscope="row">
               {product}
   
@@ -172,7 +188,6 @@ class Flights extends React.Component {
   
     }
     render() {
-  
       return (
         <tr className="eachRow">
           <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
