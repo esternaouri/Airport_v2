@@ -121,7 +121,7 @@ class Flights extends React.Component {
 
           <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
           <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText}/>
-        </div>
+                  </div>
       );
   
     }

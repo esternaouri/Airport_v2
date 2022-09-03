@@ -25,7 +25,7 @@ const[isActive4, setActive4]=React.useState(false)
     {isActive1&& <p class="card-text" >{ <WeatherAPI  city="Herzliya"></WeatherAPI>}</p>}
 
 
-    <div class="card w-75">
+    <div>
   <div class="card-body">
     <h5 class="card-title">LLHA METAR TAF/ 📣תחזית חיפה</h5>
     <br></br>
@@ -34,7 +34,7 @@ const[isActive4, setActive4]=React.useState(false)
 
   </div>
 
-  <div class="card w-75">
+  <div>
   <div class="card-body">
     <h5 class="card-title">LLBG METAR TAF/📣 תחזית בן גוריון </h5>
     <br></br>
@@ -45,7 +45,7 @@ const[isActive4, setActive4]=React.useState(false)
 </div>
 
 
-<div class="card w-75">
+<div>
   <div class="card-body">
     <h5 class="card-title">LLIB METAR TAF/📣 תחזית ראש פינה</h5>
     <br></br>

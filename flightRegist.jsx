@@ -14,7 +14,7 @@ return(
 <h1 style={{color:"white",backgroundColor:"black", textAlign:"center"}}> 🛂 שידור טיסות למודיעין הטייס</h1>
 <div style={{display:"flex", flexWrap:"wrap"}}> <Flights></Flights> </div>
 
-<h2 style={{ textAlign:"center"}}>🚁</h2>
+<h2 style={{ textAlign:"center"}}></h2>
 <br></br>
 <div class=" ontainer-sm card-text  bg-success" ><p style={{color:"white" ,textAlign:"center"}}>הטיסות נשלחות למודיעין הטיס, מייל עם אישור טיסה ישלח אוטומטי . יש לשמור ברקוד לביקרות</p></div>
 
