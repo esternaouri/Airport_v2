@@ -113,8 +113,7 @@ class Flights extends React.Component {
     render() {
   
       return (
-        <div style={{width:"100%"
-        }}>
+        <div style={{display:"flex", flexWrap:"wrap"}}>
           <input type="text" placeholder="חיפוש לפי יעד ..."  onChange={(e)=>this.setState({filterText2 : e.target.value})}/>
           <button  onClick={this.filterbyDest.bind(this)}>חפש לפי יעד</button>
           <button onClick={this.refreshPage.bind(this)}>חזור</button>
@@ -133,8 +132,7 @@ class Flights extends React.Component {
     }
     render() {
       return (
-        <div style={{width:"100%"
-      }}>
+        <div style={{width:"100%"}}>
   
           <input type="text" placeholder="חיפוש לפי שם טייס..." value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
   
@@ -222,6 +220,7 @@ class Flights extends React.Component {
           }}/>
           <td className="del-cell">
             <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
+            <button>hey</button>
           </td>
         </tr>
       );
