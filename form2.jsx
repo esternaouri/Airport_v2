@@ -8,6 +8,7 @@ class Flights extends React.Component {
   
       //  this.state.Flights = [];
       this.state = {};
+      this.state.count=0;
       this.state.filterText = "";
       this.state.Flights = [
         {
@@ -85,8 +86,8 @@ class Flights extends React.Component {
       }
       this.state.Flights.push(product);
       this.setState(this.state.Flights);
-  
-    }
+    
+   }
 
 
   
@@ -104,10 +105,16 @@ class Flights extends React.Component {
             product[key] = item.value;
   
           }
+
         }
+        const c= this.state.count +1;
+        this.setState({count: c } )
+    
         return product;
       });
+
       this.setState(newFlights);
+
       console.log(this.state.Flights);
     };
     render() {
@@ -119,7 +126,7 @@ class Flights extends React.Component {
           <button onClick={this.refreshPage.bind(this)}>חזור</button>
 
           <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
-          <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText}/>
+          <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText} count={this.state.count}/>
                   </div>
       );
   
@@ -181,10 +188,16 @@ class Flights extends React.Component {
   }
   
   class ProductRow extends React.Component {
+ 
     onDelEvent() {
       this.props.onDelEvent(this.props.product);
-  
     }
+    more(){
+      console.log(this.props.product.destination)
+      
+      
+    }
+
     render() {
       return (
         <tr className="eachRow">
@@ -220,7 +233,7 @@ class Flights extends React.Component {
           }}/>
           <td className="del-cell">
             <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
-            <button>hey</button>
+            <button onClick={()=>this.more()}>hey</button>
           </td>
         </tr>
       );
