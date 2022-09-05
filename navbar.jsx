@@ -2,11 +2,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,} from "react-router-dom";
-import One from './one';
-import Two from './two';
 import FlightRegist from './flightRegist';
 import React, { useState } from 'react';
 import Homepage from './homepage';
+import LLHA from './LLHA';
+import LLHZ from './LLHZ';
+import LLBG from './LLBG';
+import LLIB from './LLIB';
 
 function NavbarRoute() {
   const [update,isUserAuthenticated]= React.useState(true)
@@ -21,9 +23,7 @@ function NavbarRoute() {
         <Container>
           <Nav className="me-auto">
           <Nav.Link as={Link} to ={"homepage"}>עמוד הבית</Nav.Link>
-            <Nav.Link as={Link} to ={"one"}>מידע חיוני לתעופה </Nav.Link>
-            <Nav.Link as={Link} to ={"two"} >מזג אוויר ותנאי שיוט</Nav.Link>
-            <Nav.Link as={Link} to ={"flightRegist"} >רישום טיסות צפויות</Nav.Link>
+            <Nav.Link as={Link} to ={"flightRegist"} >פעילות טיסות </Nav.Link>
             
           </Nav>
         </Container>
@@ -37,9 +37,12 @@ function NavbarRoute() {
         <Route>
           <Route exact path=""element={<Homepage />}/> 
           <Route exact path="homepage" element={<Homepage />}/> 
-          <Route path="one" element={<One />} />
-          <Route path="two" element={<Two />} />
-          <Route path="flightRegist" element={<FlightRegist />} />
+          <Route path="flightRegist" element={<FlightRegist />} e>
+          <Route path="LLHZ" element={<LLHZ />} />
+          <Route path="LLBG" element={<LLBG />} />
+          <Route path="LLHA" element={<LLHA />} />
+          <Route path="LLIB" element={<LLIB />} />
+</Route>
         </Route>
       </Routes>
     </div>
