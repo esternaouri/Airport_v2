@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,} from "react-router-dom";
+import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,out} from "react-router-dom";
 import FlightRegist from './flightRegist';
 import React, { useState } from 'react';
 import Homepage from './homepage';
@@ -37,11 +37,12 @@ function NavbarRoute() {
         <Route>
           <Route exact path=""element={<Homepage />}/> 
           <Route exact path="homepage" element={<Homepage />}/> 
-          <Route path="flightRegist" element={<FlightRegist />} e>
-          <Route path="LLHZ" element={<LLHZ />} />
-          <Route path="LLBG" element={<LLBG />} />
-          <Route path="LLHA" element={<LLHA />} />
-          <Route path="LLIB" element={<LLIB />} />
+          <Route exact path="flightRegist" element={<FlightRegist />} />
+          <Route exact path="flightRegist" >
+          <Route path="LLHZ"   element={<LLHZ />} />
+          <Route path="LLBG"   element={<LLBG />} />
+          <Route path="LLHA"   element={<LLHA />} />
+          <Route path="LLIB"   element={<LLIB />} />
 </Route>
         </Route>
       </Routes>

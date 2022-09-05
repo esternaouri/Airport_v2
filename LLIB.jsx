@@ -8,8 +8,8 @@ const LLIB =(props)=>{
 
 
     return(
-    <div>
-     <h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> ❓שלום</h1>
+    <div><h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> טייס נכבד,</h1>
+    <h4>לנוחותך, פרטים על שדה ראש פינה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
 
      <div class="card mb-3">
   

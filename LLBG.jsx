@@ -9,8 +9,8 @@ const LLBG =(props)=>{
 
     return(
     <div>
-     <h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> ❓שלום</h1>
-
+     <h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> טייס נכבד,</h1>
+<h4>לנוחותך, פרטים על שדה בן גוריון  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
      <div class="card mb-3">
   
 </div>     
@@ -21,15 +21,17 @@ const LLBG =(props)=>{
   </div>
 
 
-    <h5 class="card-title">LLBG METAR TAF/📣 תחזית בן גוריון </h5>
+  <div class="card-body">
+    <h5 class="card-title">LLBG METAR TAF/ 📣תחזית בן גוריון</h5>
     <br></br>
-    <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "פחות... -":"עוד... +"}</button>
-    {isActive3&& <p class="card-text" >{ <WeatherAPI  city="tel-aviv"></WeatherAPI>}</p>}
+    <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "פחות... -":"עוד...  +"}</button>
+    {isActive3&& <p class="card-text" >{ <WeatherAPI  city="haifa"></WeatherAPI>}</p>}
 
   </div>
+
 </div>
 
-
+</div>
 )
 
 

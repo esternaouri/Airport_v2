@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,} from "react-router-dom";
+import LLHA from './LLHA';
+import LLHZ from './LLHZ';
+import LLBG from './LLBG';
+import LLIB from './LLIB';
 
 class Flights extends React.Component {
 
@@ -221,10 +225,10 @@ class ProductRow extends React.Component {
         <td className="del-cell">
           <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
           {
-              (this.props.product.destination=="LLBG")&&<Link to ="/flightRegist/LLBG">LLBG/פרטים</Link>}{ 
-              (this.props.product.destination=="LLHZ")&&<Link to ="/flightRegist/LLHZ">LLHZ/פרטים</Link>}{
-              (this.props.product.destination=="LLIB")&&<Link to ="/flightRegist/LLIB">LLIB/פרטים</Link>}{
-              (this.props.product.destination=="LLHA")&&<Link to ="/flightRegist/LLHA">LLHA/פרטים</Link>
+              (this.props.product.destination=="LLBG")&&<Link to ="/flightRegist/LLBG">פרטים על השדה</Link>}{ 
+              (this.props.product.destination=="LLHZ")&&<Link to ="/flightRegist/LLHZ">פרטים על השדה </Link>}{
+              (this.props.product.destination=="LLIB")&&<Link to ="/flightRegist/LLIB">פרטים על השדה </Link>}{
+              (this.props.product.destination=="LLHA")&&<Link to ="/flightRegist/LLHA">פרטים על השדה </Link>
                }
         </td>
       </tr>

@@ -8,8 +8,8 @@ const LLHA =(props)=>{
 
     return(
     <div>
-     <h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> ❓שלום</h1>
-
+<h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> טייס נכבד,</h1>
+<h4>לנוחותך, פרטים על שדה חיפה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
      <div class="card mb-3">
   <div class="card-body">
     <h5 class="card-title">LLHA - A.I.P / חיפה</h5>
