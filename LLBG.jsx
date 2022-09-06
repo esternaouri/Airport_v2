@@ -9,19 +9,19 @@ const LLBG =(props)=>{
 
     return(
     <div>
-     <h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> טייס נכבד,</h1>
-<h4>לנוחותך, פרטים על שדה בן גוריון  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
+     <h1  class=" text-center"> טייס נכבד</h1>
+      <h4 class=" text-center">לנוחותך, פרטים על שדה בן גוריון  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
      <div class="card mb-3">
   
 </div>     
-<div class="card mb-3">
+<div class="card mb-3  text-center">
   <div class="card-body">
     <h5 class="card-title">LLBG - A.I.P/ בן גוריון </h5>
-    <p class="card-text">שדה תעופה בן גוריון הוא שדה תעופה מרכזי בישראל  ושדה תעופה בנלאומי<br></br><a href="https://www.gov.il/en/Departments/General/electronic-aip" target="_blank">aip- Ben Gurion</a></p>
+    <p >שדה תעופה בן גוריון הוא שדה תעופה מרכזי בישראל  ושדה תעופה בנלאומי<br></br><a href="https://www.gov.il/en/Departments/General/electronic-aip" target="_blank">aip- Ben Gurion</a></p>
   </div>
 
 
-  <div class="card-body">
+  <div class="card-body   card-body shadow-lg p-3 mb-5 bg-body rounded">
     <h5 class="card-title">LLBG METAR TAF/ 📣תחזית בן גוריון</h5>
     <br></br>
     <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "פחות... -":"עוד...  +"}</button>

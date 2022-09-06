@@ -8,20 +8,20 @@ const LLIB =(props)=>{
 
 
     return(
-    <div><h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> טייס נכבד,</h1>
-    <h4>לנוחותך, פרטים על שדה ראש פינה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
+    <div><h1 class="text-center"> טייס נכבד</h1>
+    <h4 class= "text-center">לנוחותך, פרטים על שדה ראש פינה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
 
      <div class="card mb-3">
   
 </div>     
-<div class="card mb-3">
+<div class="card mb-3 text-center">
   <div class="card-body">
     <h5 class="card-title">LLIB - A.I.P/ ראש פינה</h5>
     <p class="card-text">שדה תעופה ראש פינה הוא שדה צפוני וקרוב לכנרת  - <br></br><a href="https://www.gov.il/BlobFolder/generalpage/roashpina-airport/he/aip_roshpina-llib.pdf" target="_blank">aip- Rosh Pina</a></p>
   </div>
 
 </div>
-<div class="card-body">
+<div class="card-body text-center card-body shadow-lg p-3 mb-5 bg-body rounded">
     <h5 class="card-title">LLIB METAR TAF/📣 תחזית ראש פינה</h5>
     <br></br>
     <button type="button" class="btn btn-primary " onClick={()=>setActive4(!isActive4)}>{isActive4? "פחות...  -":"עוד...  +"}</button>

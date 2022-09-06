@@ -4,6 +4,9 @@ import LLHA from './LLHA';
 import LLHZ from './LLHZ';
 import LLBG from './LLBG';
 import LLIB from './LLIB';
+import 'antd/dist/antd.css';
+import './index.css';
+import { Card } from 'antd';
 
 class Flights extends React.Component {
 
@@ -17,39 +20,41 @@ class Flights extends React.Component {
       {
         id: 1,
         destination: 'LLBG',
-        
-        qty: 12,
-        name: 'עידן'
+        aircraft: "cessna 172",
+        name: 'עידן',
+        fuel: "85LB",
+        arival_date:"12.08.2022",
+        travel_time:"5.5hr"
       }, {
         id: 2,
         destination: 'LLBG',
-        price: '',
-        qty: 15,
-        name: 'אסתר'
+        aircraft: "BOEING 787",
+        name: 'מוטי',
+        fuel: "85LB",
+        arival_date:"12.08.2022",
+        travel_time:"5.5hr"
       }, {
         id: 3,
         destination: 'LLHA',
-        price: '',
-        qty: 14,
-        name: 'מוטי'
+        aircraft: "PAPER CHEROKI 82",
+        name: 'נפתלי',
+        fuel: "85LB",
+        arival_date:"12.07.2022",
+        travel_time:"4.5hr"
       }, {
         id: 4,
-        destination: 'LLIB',
-        price: '',
-        qty: 34,
-        name: 'נפתלי'
+        destination: 'LLBG',
+        aircraft: "cessna 172",
+        name: 'עידן',
+        fuel: "85LB",
+        arival_date:"12.08.2022",
+        travel_time:"5.5hr"
       }, {
         id: 5,
         destination: 'LLIB',
 
         price: '',
-        qty: 12,
-        name: 'נפתלי'
-      }, {
-        id: 6,
-        destination: 'LLHZ',
-        price: '',
-        qty: 23,
+        aircraft: 12,
         name: 'נפתלי'
       }
     ];
@@ -162,9 +167,10 @@ class ProductTable extends React.Component {
 
 
         <table className="table table-bordered">
+        <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right">שדר טיסה חדשה למודיעין הטייס </button>
+
           <thead>
             <tr>
-          
             </tr>
           </thead>
 
@@ -172,7 +178,6 @@ class ProductTable extends React.Component {
             {product}
 
           </tbody>
-          <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right">שדר טיסה חדשה למודיעין הטייס </button>
 
         </table>
       </div>
@@ -190,8 +195,11 @@ class ProductRow extends React.Component {
   render() {
 
     return (
-      <div class="card">
-      <tr className="eachRow">
+      <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
+          <div class="card-title">{" טיסה מתוכננת מספר: "+this.props.product.id}</div>
+      <div class="card-body">
+      <tr className="eachRow" >
+      
         <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           "type": "name",
           value: this.props.product.name,
@@ -202,6 +210,7 @@ class ProductRow extends React.Component {
           value: this.props.product.destination,
           id: this.props.product.id
         }}/>
+        
         <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "aircraft",
           value: this.props.product.aircraft,
@@ -222,17 +231,21 @@ class ProductRow extends React.Component {
           value: this.props.product.fuel,
           id: this.props.product.id
         }}/>
+        
         <td className="del-cell">
           <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
           {
               (this.props.product.destination=="LLBG")&&<Link to ="/flightRegist/LLBG">פרטים על השדה</Link>}{ 
               (this.props.product.destination=="LLHZ")&&<Link to ="/flightRegist/LLHZ">פרטים על השדה </Link>}{
               (this.props.product.destination=="LLIB")&&<Link to ="/flightRegist/LLIB">פרטים על השדה </Link>}{
-              (this.props.product.destination=="LLHA")&&<Link to ="/flightRegist/LLHA">פרטים על השדה </Link>
-               }
+              (this.props.product.destination=="LLHA")&&<Link to ="/flightRegist/LLHA">פרטים על השדה </Link>}{
+            }
+              
         </td>
       </tr>
-      </div>);
+          </div>
+          </div>
+          );
 
   }
 

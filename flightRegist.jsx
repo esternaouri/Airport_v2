@@ -10,8 +10,11 @@ import LLIB from './LLIB';
 const Fr=()=>{
 return(
 <div style={{width:"100%"}}>
+
 <h1 style={{color:"white",backgroundColor:"black", textAlign:"center"}}> 🛂 שידור טיסות למודיעין הטייס</h1>
-<div style={{display:"flex", flexWrap:"wrap"}}> <Products></Products> </div>
+
+<div style={{display:"flex", flexWrap:"wrap"}}> <Products></Products><div class="shadow-sm p-3 mb-5 bg-body rounded">  LLHZ/LLIB/LLBG/LLHA יעדים </div>
+ </div>
 
 <h2 style={{ textAlign:"center"}}></h2>
 <br></br>

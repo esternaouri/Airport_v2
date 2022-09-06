@@ -9,17 +9,17 @@ const LLHZ =()=>{
 
     return(
     <div>
-    <h1  style={{ backgroundColor:"black", color:"white",textAlign:"center"}}> טייס נכבד,</h1>
-<h4>לנוחותך, פרטים על שדה הרצליה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
+    <h1  class="text-center"> טייס נכבד</h1>
+<h4 class="text-center">לנוחותך, פרטים על שדה הרצליה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
 
-     <div class="card mb-3">
+     <div class="card mb-3 text-center">
   <div class="card-body">
     <h5 class="card-title">LLHZ - A.I.P / הרצליה</h5>
     <p class="card-text">שדה תעופה באיזור רעננה והרצליה, מיועד לאימוני טייסים צעירים ולטיסות  פנימיות <br></br><a href="https://www.gov.il/BlobFolder/generalpage/herzelia-airport/he/aip_herzliya-llhz1.pdf"  target="_blank">aip- Herzzelya</a></p>
   </div>
   </div>
 
-  <div class="card-body">
+  <div class="card-body text-center card-body shadow-lg p-3 mb-5 bg-body rounded">
     <h5 class="card-title">LLHZ METAR TAF/📣 תחזית הרצליה</h5>
     <br></br>
     <button type="button" class="btn btn-primary " onClick={()=>setActive1(!isActive1)}>{isActive1? "פחות...  -":"עוד...  +"}</button>
