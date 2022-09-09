@@ -7,7 +7,7 @@ MAIL: ESTER1087@GMAIL.COM
 PHONE : 058-700-7177
 
 This project contain a web site of flight registration. 
-to registe for a flight you have to give information about your name, your aircraft, the date of flight, flight diration, the drstination and how much fuel you are going to use.
+to registe for a flight you have to give information about your name, your aircraft, the date of flight, flight duration, the destination and how much fuel you are going to use.
 destination's are : LLBG , LLHA ,LLHZ , LLIB for each Israel airports.
 when you insert a destination in the card, automatically you have a link with important information about this airport and a API with current waether in the airport.
 
