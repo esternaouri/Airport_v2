@@ -12,6 +12,7 @@ import LLIB from './LLIB';
 
 function NavbarRoute() {
   const [update,isUserAuthenticated]= React.useState(true)
+//make my navigation bar and nested routes
 
   return (
     <div>
@@ -22,7 +23,7 @@ function NavbarRoute() {
       <Navbar bg="primary" variant="dark">
         <Container>
           <Nav className="me-auto">
-          <Nav.Link as={Link} to ={"homepage"}>עמוד הבית</Nav.Link>
+          <Nav.Link as={Link} to ={"homepage"}> אודות</Nav.Link>
             <Nav.Link as={Link} to ={"flightRegist"} >פעילות טיסות </Nav.Link>
             
           </Nav>
@@ -43,6 +44,7 @@ function NavbarRoute() {
           <Route path="LLBG"   element={<LLBG />} />
           <Route path="LLHA"   element={<LLHA />} />
           <Route path="LLIB"   element={<LLIB />} />
+
 </Route>
         </Route>
       </Routes>

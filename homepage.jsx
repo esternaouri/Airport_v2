@@ -1,7 +1,7 @@
 import React from 'react';
 import "antd/dist/antd.css";
 import "./styles.css";
-
+//this is my home page componnents withe importen informmation aboute website
 const Homepage =()=>{
     return(
     <div  class="card mb-3">

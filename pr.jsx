@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,} from "react-router-dom";
-import LLHA from './LLHA';
-import LLHZ from './LLHZ';
-import LLBG from './LLBG';
-import LLIB from './LLIB';
+
 import 'antd/dist/antd.css';
 import './index.css';
 import { Card } from 'antd';
+//this is my flights card classes
 
 class Flights extends React.Component {
 
@@ -16,6 +14,7 @@ class Flights extends React.Component {
     //  this.state.Flights = [];
     this.state = {};
     this.state.filterText = "";
+//enter example for show
     this.state.Flights = [
       {
         id: 1,
@@ -41,35 +40,24 @@ class Flights extends React.Component {
         fuel: "85LB",
         arival_date:"12.07.2022",
         travel_time:"4.5hr"
-      }, {
-        id: 4,
-        destination: 'LLBG',
-        aircraft: "cessna 172",
-        name: 'עידן',
-        fuel: "85LB",
-        arival_date:"12.08.2022",
-        travel_time:"5.5hr"
-      }, {
-        id: 5,
-        destination: 'LLIB',
-
-        price: '',
-        aircraft: 12,
-        name: 'נפתלי'
-      }
+      },  
+    
     ];
 
   }
+  //on change for filter by pilot name
   handleUserInput(filterText) {
     this.setState({filterText: filterText});
   };
+  //this is going to delet from state the card to delete
   handleRowDel(product) {
     var index = this.state.Flights.indexOf(product);
     this.state.Flights.splice(index, 1);
     this.setState(this.state.Flights);
   };
-
+//on adding new flight this will push to the state the new card
   handleAddEvent(evt) {
+    alert("יש להזין יעד בפורמט כזה LLBG,LLHZ,LLIB,LLHA")
     var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
     var product = {
       id: id,
@@ -83,21 +71,19 @@ class Flights extends React.Component {
     }
     this.state.Flights.push(product);
     this.setState(this.state.Flights);
-
+//here is the filter on state by destination
   }
   filterbyDest(e) {
     const basic=this.state.Flights
     const result =  this.state.Flights.filter((item)=>item.destination==this.state.filterText2);
-    console.log(result)
     this.setState({Flights: result});
-    if (this.state.filterText2==""){
-      this.setState({Flights: basic});
-    }
+
   };
+  //on click on back button we refresh the page
   refreshPage() {
     window.location.reload(false);
   }
-
+//here im mapping my state includiing filter by name
   handleProductTable(evt) {
     var item = {
       id: evt.target.id,
@@ -105,7 +91,6 @@ class Flights extends React.Component {
       value: evt.target.value
     };
     var Flights = this.state.Flights;
-
     var newFlights = Flights.map(function(product) {
       for (var key in product) {
         if (key == item.name && product.id == item.id) {
@@ -118,6 +103,8 @@ class Flights extends React.Component {
     this.setState(newFlights);
     console.log(this.state.Flights);
   };
+
+  //rendering the cards and filter's
   render() {
 
     return (
@@ -133,6 +120,7 @@ class Flights extends React.Component {
   }
 
 }
+//make the filter by name class and render it
 class SearchBar extends React.Component {
   handleChange() {
     this.props.onUserInput(this.refs.filterTextInput.value);
@@ -149,7 +137,7 @@ class SearchBar extends React.Component {
   }
 
 }
-
+//making my product(flights) table 
 class ProductTable extends React.Component {
 
   render() {
@@ -192,6 +180,7 @@ class ProductRow extends React.Component {
     this.props.onDelEvent(this.props.product);
 
   }
+  //rendering my cell on cards and add links for each airport for more information
   render() {
 
     return (
@@ -200,33 +189,33 @@ class ProductRow extends React.Component {
       <div class="card-body">
       <tr className="eachRow" >
       
-        <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+      <span>pilot name</span><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           "type": "name",
           value: this.props.product.name,
           id: this.props.product.id
         }}/>
-        <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+       <span>destination</span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "destination",
           value: this.props.product.destination,
           id: this.props.product.id
         }}/>
         
-        <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        <span>aircraft</span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "aircraft",
           value: this.props.product.aircraft,
           id: this.props.product.id
         }}/>
-        <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+       <span>arival date</span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "arival_date",
           value: this.props.product.arival_date,
           id: this.props.product.id
         }}/>
-          <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        <span>travel time</span>  <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "travel_time",
           value: this.props.product.travel_time,
           id: this.props.product.id
         }}/>
-          <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+          <span>fuel</span><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "fuel",
           value: this.props.product.fuel,
           id: this.props.product.id
@@ -250,12 +239,13 @@ class ProductRow extends React.Component {
   }
 
 }
+//this class make my editble cell
 class EditableCell extends React.Component {
 
   render() {
     return (
       <td style={{display:"inline-flex",flexWrap: "wrap"}}>
-        <input type='text'  placeholder= {this.props.cellData.type}  name={this.props.cellData.type} id={this.props.cellData.id} value={this.props.cellData.value} onChange={this.props.onProductTableUpdate}/>
+        <input type='text'  name={this.props.cellData.type} id={this.props.cellData.id} value={(this.props.cellData.value  ) } onChange={this.props.onProductTableUpdate}/>
       </td>
     );
 

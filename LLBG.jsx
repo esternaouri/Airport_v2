@@ -5,7 +5,7 @@ import WeatherAPI from './weatherApi';
 
 const LLBG =(props)=>{
     const[isActive3, setActive3]=React.useState(false)
-
+//using API for weather to airport
 
     return(
     <div>

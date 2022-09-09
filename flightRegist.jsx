@@ -1,19 +1,15 @@
 import React, { useState, Fragment } from "react";
 import "./styles.css";
 import "antd/dist/antd.css";
-import { Row, Col } from "antd";
-import Products from "./pr"
-import LLHA from './LLHA';
-import LLHZ from './LLHZ';
-import LLBG from './LLBG';
-import LLIB from './LLIB';
+import Flights from "./pr"
+//rendering all my components
 const Fr=()=>{
 return(
 <div style={{width:"100%"}}>
 
 <h1 style={{color:"white",backgroundColor:"black", textAlign:"center"}}> 🛂 שידור טיסות למודיעין הטייס</h1>
 
-<div style={{display:"flex", flexWrap:"wrap"}}> <Products></Products><div class="shadow-sm p-3 mb-5 bg-body rounded">  LLHZ/LLIB/LLBG/LLHA יעדים </div>
+<div style={{display:"flex", flexWrap:"wrap"}}> <Flights></Flights><div class="shadow-sm p-3 mb-5 bg-body rounded ">  LLHZ/LLIB/LLBG/LLHA יעדים </div>
  </div>
 
 <h2 style={{ textAlign:"center"}}></h2>

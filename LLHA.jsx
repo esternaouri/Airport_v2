@@ -5,6 +5,7 @@ import WeatherAPI from './weatherApi';
 
 const LLHA =(props)=>{
     const[isActive2, setActive2]=React.useState(false)
+////using API for weather to airport
 
     return(
     <div>
