@@ -15,6 +15,11 @@ you can add a new flight card, you can edit your card, remove the card, and filt
 
 we dont make input validation; except an alert that you must insert  airport by the format.
 
+when you will add a new card, it will ask you to add destination in that format : LLHZ OR LLBG OR LLHA OR LLIB if you dont add destination like that it will not show you 
+
+detail about the destination airport. only validate airport will show the link with more detaile. 
+
+
 filtre by pilot name is automatique.
 filtre by destination you must click to make the filter work.
 
