@@ -11,7 +11,7 @@ to registe for a flight you have to give information about your name, your aircr
 destination's are : LLBG , LLHA ,LLHZ , LLIB for each Israel airports.
 when you insert a destination in the card, automatically you have a link with important information about this airport and a API with current waether in the airport.
 
-you can add a new flight card, you can edit your card, remove the card, and filtre all card by pilot name  and/or by destination.
+you can add a new flight card, you can edit your card by clicking on relevant field, remove the card, and filtre all card by pilot name  and/or by destination.
 
 we dont make input validation; except an alert that you must insert  airport by the format.
 
