@@ -73,12 +73,27 @@ class Flights extends React.Component {
     this.setState(this.state.Flights);
 //here is the filter on state by destination
   }
-  filterbyDest(e) {
-    const basic=this.state.Flights
-    const result =  this.state.Flights.filter((item)=>item.destination==this.state.filterText2);
-    this.setState({Flights: result});
+   handleSearch2 = (event) => {
 
+    if (event.target.value === "") {
+      this.setState(this.state.Flights);
+      return;
+    }
+    const filteredValues = this.state.Flights.filter(
+      (item) =>
+        item.destination.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+    );
+    this.setState({Flights: filteredValues});
   };
+
+
+
+  //filterbyDest(e) {
+    //const basic=this.state.Flights
+    //const result =  this.state.Flights.filter((item)=>item.destination==this.state.filterText2);
+    //this.setState({Flights: result});
+
+  //};
   //on click on back button we refresh the page
   refreshPage() {
     window.location.reload(false);
@@ -108,11 +123,10 @@ class Flights extends React.Component {
   render() {
 
     return (
-      <div>
-         <input type="text" placeholder="חיפוש לפי יעד "  onChange={(e)=>this.setState({filterText2 : e.target.value})}/>
-          <button  onClick={this.filterbyDest.bind(this)}>חפש לפי יעד</button>
-          <button onClick={this.refreshPage.bind(this)}>חזור</button>
+      <div style={{display:"inline-flex", flexWrap:"wrap",  justifyContent: "space-evenly	" }}>
+       <input name="query" type="text" placeholder=" 🔎 חפש לפי יעד" onChange={this.handleSearch2.bind(this)} />
         <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
+        <button onClick={this.refreshPage.bind(this)} >חזור 🔙</button>
         <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText}/>
       </div>
     );
@@ -129,7 +143,7 @@ class SearchBar extends React.Component {
     return (
       <div>
 
-        <input type="text" placeholder="חפש לפי שם טייס" value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
+        <input type="text" placeholder=" 🔎 חפש לפי שם טייס" value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
 
       </div>
 
@@ -189,37 +203,37 @@ class ProductRow extends React.Component {
       <div class="card-body">
       <tr className="eachRow" >
       
-      <span>pilot name</span><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+      <span class="card-body">pilot name<EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           "type": "name",
           value: this.props.product.name,
           id: this.props.product.id
-        }}/>
-       <span>destination</span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        }}/></span>
+       <span class="card-body">destination <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "destination",
           value: this.props.product.destination,
           id: this.props.product.id
-        }}/>
+        }}/></span>
         
-        <span>aircraft</span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        <span class="card-body">aircraft <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "aircraft",
           value: this.props.product.aircraft,
           id: this.props.product.id
-        }}/>
-       <span>arival date</span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        }}/></span>
+       <span class="card-body">arival date<EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "arival_date",
           value: this.props.product.arival_date,
           id: this.props.product.id
-        }}/>
-        <span>travel time</span>  <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        }}/></span>
+        <span class="card-body">travel time  <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "travel_time",
           value: this.props.product.travel_time,
           id: this.props.product.id
-        }}/>
-          <span>fuel</span><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        }}/></span>
+          <span class="card-body">fuel<EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "fuel",
           value: this.props.product.fuel,
           id: this.props.product.id
-        }}/>
+        }}/></span>
         
         <td className="del-cell">
           <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
