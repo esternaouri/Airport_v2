@@ -124,9 +124,13 @@ class Flights extends React.Component {
 
     return (
       <div style={{display:"inline-flex", flexWrap:"wrap",  justifyContent: "space-evenly	" }}>
-       <input name="query" type="text" placeholder=" 🔎 חפש לפי יעד" onChange={this.handleSearch2.bind(this)} />
+        <div>
+       <input  name="query" type="text" placeholder=" 🔎 Filter By Destination" onChange={this.handleSearch2.bind(this)} />
+       </div>
         <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
-        <button onClick={this.refreshPage.bind(this)} >חזור 🔙</button>
+      <div>
+        <button onClick={this.refreshPage.bind(this)} >Back 🔙</button>
+        </div>
         <ProductTable onProductTableUpdate={this.handleProductTable.bind(this)} onRowAdd={this.handleAddEvent.bind(this)} onRowDel={this.handleRowDel.bind(this)} Flights={this.state.Flights} filterText={this.state.filterText}/>
       </div>
     );
@@ -142,9 +146,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-
-        <input type="text" placeholder=" 🔎 חפש לפי שם טייס" value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
-
+        <input type="text" placeholder=" 🔎Filter By Pilot Name" value={this.props.filterText} ref="filterTextInput" onChange={this.handleChange.bind(this)}/>
       </div>
 
     );
@@ -169,8 +171,7 @@ class ProductTable extends React.Component {
 
 
         <table className="table table-bordered">
-        <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right">שדר טיסה חדשה למודיעין הטייס </button>
-
+        <button type="button" onClick={this.props.onRowAdd} className="btn btn-success pull-right"> New Flight  </button>
           <thead>
             <tr>
             </tr>
@@ -199,37 +200,37 @@ class ProductRow extends React.Component {
 
     return (
       <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
-          <div class="card-title">{" טיסה מתוכננת מספר: "+this.props.product.id}</div>
-      <div class="card-body">
+          <div class="card-title">{" Flight Number: "+this.props.product.id}</div>
+      <div >
       <tr className="eachRow" >
       
-      <span class="card-body">pilot name<EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+      <span ><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           "type": "name",
           value: this.props.product.name,
           id: this.props.product.id
         }}/></span>
-       <span class="card-body">destination <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+       <span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "destination",
           value: this.props.product.destination,
           id: this.props.product.id
         }}/></span>
         
-        <span class="card-body">aircraft <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        <span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "aircraft",
           value: this.props.product.aircraft,
           id: this.props.product.id
         }}/></span>
-       <span class="card-body">arival date<EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+       <span ><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "arival_date",
           value: this.props.product.arival_date,
           id: this.props.product.id
         }}/></span>
-        <span class="card-body">travel time  <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+        <span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "travel_time",
           value: this.props.product.travel_time,
           id: this.props.product.id
         }}/></span>
-          <span class="card-body">fuel<EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
+          <span ><EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
           type: "fuel",
           value: this.props.product.fuel,
           id: this.props.product.id
@@ -259,9 +260,10 @@ class EditableCell extends React.Component {
   render() {
     return (
       <td style={{display:"inline-flex",flexWrap: "wrap"}}>
+          <label>{""+this.props.cellData.type+": "}
         <input type='text'  name={this.props.cellData.type} id={this.props.cellData.id} value={(this.props.cellData.value  ) } onChange={this.props.onProductTableUpdate}/>
-      </td>
-    );
+      </label>
+      </td>    );
 
   }
 

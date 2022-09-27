@@ -9,8 +9,8 @@ return(
 
 <h1 style={{color:"white",backgroundColor:"black", textAlign:"center"}}> 🛂 שידור טיסות למודיעין הטייס</h1>
 
-<div style={{display:"flex", flexWrap:"wrap"}}> <Flights></Flights><div class="shadow-sm p-3 mb-5 bg-body rounded ">  LLHZ/LLIB/LLBG/LLHA יעדים </div>
- </div>
+ <Flights></Flights>
+ 
 
 <h2 style={{ textAlign:"center"}}></h2>
 <br></br>
