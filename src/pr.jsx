@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,} from "react-router-dom";
-
 import 'antd/dist/antd.css';
 import './index.css';
+import barcod from './barcod.png';
+
+
 import { Card } from 'antd';
 //this is my flights card classes
 
@@ -32,15 +34,7 @@ class Flights extends React.Component {
         fuel: "85LB",
         arival_date:"12.08.2022",
         travel_time:"5.5hr"
-      }, {
-        id: 3,
-        destination: 'LLHA',
-        aircraft: "PAPER CHEROKI 82",
-        name: 'נפתלי',
-        fuel: "85LB",
-        arival_date:"12.07.2022",
-        travel_time:"4.5hr"
-      },  
+      }
     
     ];
 
@@ -57,8 +51,8 @@ class Flights extends React.Component {
   };
 //on adding new flight this will push to the state the new card
   handleAddEvent(evt) {
-    alert("יש להזין יעד בפורמט כזה LLBG,LLHZ,LLIB,LLHA")
-    var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
+    alert("בשדה יעד, חובה להזין יעד בפורמט רת'א שהם :   LLBG,LLHZ,LLHA,LLIB ")
+          var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
     var product = {
       id: id,
       name: "",
@@ -85,8 +79,6 @@ class Flights extends React.Component {
     );
     this.setState({Flights: filteredValues});
   };
-
-
 
   //filterbyDest(e) {
     //const basic=this.state.Flights
@@ -200,7 +192,15 @@ class ProductRow extends React.Component {
 
     return (
       <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
-          <div class="card-title">{" Flight Number: "+this.props.product.id}</div>
+    <h1 style={{fontFamily:"verdana", fontSize:"170%",color:"green"}}>{" Flight Number: "+this.props.product.id}</h1>
+          <div style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between"}}>
+          <img src={require('./barcod.png')}style={{width:"10%"}} />
+          <img src={require('./logo.png')}style={{width:"10%"}} />
+
+          </div>
+          
+
+
       <div >
       <tr className="eachRow" >
       
@@ -235,9 +235,12 @@ class ProductRow extends React.Component {
           value: this.props.product.fuel,
           id: this.props.product.id
         }}/></span>
-        
+      
+     
+
         <td className="del-cell">
           <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
+          
           {
               (this.props.product.destination=="LLBG")&&<Link to ="/flightRegist/LLBG">פרטים על השדה</Link>}{ 
               (this.props.product.destination=="LLHZ")&&<Link to ="/flightRegist/LLHZ">פרטים על השדה </Link>}{
