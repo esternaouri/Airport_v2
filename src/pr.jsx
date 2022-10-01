@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Route,Link, Routes,BrowserRouter,Navigate,} from "react-router-dom";
 import 'antd/dist/antd.css';
 import './index.css';
-import barcod from './barcod.png';
+import OP from './option';
 
 
 import { Card } from 'antd';
@@ -20,7 +19,7 @@ class Flights extends React.Component {
     this.state.Flights = [
       {
         id: 1,
-        destination: 'LLBG',
+        departure: 'Rosh-Pina',
         aircraft: "cessna 172",
         name: 'עידן',
         fuel: "85LB",
@@ -28,7 +27,7 @@ class Flights extends React.Component {
         travel_time:"5.5hr"
       }, {
         id: 2,
-        destination: 'LLBG',
+        departure: 'Ben-Gurion',
         aircraft: "BOEING 787",
         name: 'מוטי',
         fuel: "85LB",
@@ -51,12 +50,11 @@ class Flights extends React.Component {
   };
 //on adding new flight this will push to the state the new card
   handleAddEvent(evt) {
-    alert("בשדה יעד, חובה להזין יעד בפורמט רת'א שהם :   LLBG,LLHZ,LLHA,LLIB ")
           var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
     var product = {
       id: id,
       name: "",
-      destination: "",
+      departure: "",
       aircraft: "",
       arival_date: "",
       travel_time: "",
@@ -65,7 +63,7 @@ class Flights extends React.Component {
     }
     this.state.Flights.push(product);
     this.setState(this.state.Flights);
-//here is the filter on state by destination
+//here is the filter on state by departure
   }
    handleSearch2 = (event) => {
 
@@ -75,17 +73,12 @@ class Flights extends React.Component {
     }
     const filteredValues = this.state.Flights.filter(
       (item) =>
-        item.destination.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+        item.departure.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
     );
     this.setState({Flights: filteredValues});
   };
 
-  //filterbyDest(e) {
-    //const basic=this.state.Flights
-    //const result =  this.state.Flights.filter((item)=>item.destination==this.state.filterText2);
-    //this.setState({Flights: result});
 
-  //};
   //on click on back button we refresh the page
   refreshPage() {
     window.location.reload(false);
@@ -110,14 +103,14 @@ class Flights extends React.Component {
     this.setState(newFlights);
     console.log(this.state.Flights);
   };
-
+ 
   //rendering the cards and filter's
   render() {
 
     return (
       <div style={{display:"inline-flex", flexWrap:"wrap",  justifyContent: "space-evenly	" }}>
         <div>
-       <input  name="query" type="text" placeholder=" 🔎 Filter By Destination" onChange={this.handleSearch2.bind(this)} />
+       <input  name="query" type="text" placeholder=" 🔎 Filter By Departure" onChange={this.handleSearch2.bind(this)} />
        </div>
         <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
       <div>
@@ -187,6 +180,10 @@ class ProductRow extends React.Component {
     this.props.onDelEvent(this.props.product);
 
   }
+  option(evt) {
+    let choseDest=  evt.target.value;
+    this.props.product.departure=choseDest;
+   }
   //rendering my cell on cards and add links for each airport for more information
   render() {
 
@@ -199,8 +196,6 @@ class ProductRow extends React.Component {
 
           </div>
           
-
-
       <div >
       <tr className="eachRow" >
       
@@ -210,8 +205,8 @@ class ProductRow extends React.Component {
           id: this.props.product.id
         }}/></span>
        <span> <EditableCell onProductTableUpdate={this.props.onProductTableUpdate} cellData={{
-          type: "destination",
-          value: this.props.product.destination,
+          type: "departure",
+          value: this.props.product.departure,
           id: this.props.product.id
         }}/></span>
         
@@ -235,20 +230,13 @@ class ProductRow extends React.Component {
           value: this.props.product.fuel,
           id: this.props.product.id
         }}/></span>
-      
-     
-
         <td className="del-cell">
+          <div style={{display:"flex",  justifyContent: "space-evenly	"}}>
+          <lable>Destination:</lable><OP></OP>
           <input type="button" onClick={this.onDelEvent.bind(this)} value="🛢️" className="del-btn"/>
-          
-          {
-              (this.props.product.destination=="LLBG")&&<Link to ="/flightRegist/LLBG">פרטים על השדה</Link>}{ 
-              (this.props.product.destination=="LLHZ")&&<Link to ="/flightRegist/LLHZ">פרטים על השדה </Link>}{
-              (this.props.product.destination=="LLIB")&&<Link to ="/flightRegist/LLIB">פרטים על השדה </Link>}{
-              (this.props.product.destination=="LLHA")&&<Link to ="/flightRegist/LLHA">פרטים על השדה </Link>}{
-            }
-              
+          </div>     
         </td>
+        
       </tr>
           </div>
           </div>
