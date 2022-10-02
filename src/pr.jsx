@@ -191,8 +191,8 @@ class ProductRow extends React.Component {
       <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
     <h1 style={{fontFamily:"verdana", fontSize:"170%",color:"green"}}>{" Flight Number: "+this.props.product.id}</h1>
           <div style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between"}}>
-          <img src={require('./barcod.png')}style={{width:"10%"}} />
-          <img src={require('./logo.png')}style={{width:"10%"}} />
+          <img src={require('./barcod.png')}style={{width:"6.5%"}} />
+          <img src={require('./logo.png')}style={{width:"6.5%"}} />
 
           </div>
           

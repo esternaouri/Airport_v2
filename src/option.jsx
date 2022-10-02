@@ -30,22 +30,27 @@ const ForLink=(props)=>{
 
 if(props.value=="Herzzelya"){
     return(
-        <Link to ="/flightRegist/LLHZ">פרטים על הרצליה  </Link>
+        
+        <Link to ="/flightRegist/LLHZ"><button type="button">נמל הרצליה
+   </button> </Link>
     )
 }
 else if(props.value=="ben-Gurion"){
     return(
-    <Link to ="/flightRegist/LLBG">פרטים על בן גוריון  </Link>
+    <Link to ="/flightRegist/LLBG"><button type="button">נתב"ג 
+    </button>  </Link>
     )
 }
 else if(props.value=="Rosh-Pina"){
     return(
-    <Link to ="/flightRegist/LLIB">פרטים על ראש פינה </Link>
+    <Link to ="/flightRegist/LLIB"><button type="button">נמל ר"פ
+    </button> </Link>
     )
 }
 else if(props.value=="Haifa"){
     return(
-    <Link to ="/flightRegist/LLHA">פרטים על חיפה </Link>
+    <Link to ="/flightRegist/LLHA"> <button type="button">נמל חיפה
+    </button>   </Link>
     )
 }
 }

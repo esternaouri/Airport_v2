@@ -9,27 +9,19 @@ const LLIB =(props)=>{
 
 
     return(
-    <div><h1 class="text-center"> טייס נכבד</h1>
-    <h4 class= "text-center">לנוחותך, פרטים על שדה ראש פינה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
-
-     <div class="card mb-3">
-  
-</div>     
-<div class="card mb-3 text-center">
-  <div class="card-body">
-    <h5 class="card-title">LLIB - A.I.P/ ראש פינה</h5>
-    <p class="card-text">שדה תעופה ראש פינה הוא שדה צפוני וקרוב לכנרת  - <br></br><a href="https://www.gov.il/BlobFolder/generalpage/roashpina-airport/he/aip_roshpina-llib.pdf" target="_blank">aip- Rosh Pina</a></p>
-  </div>
-
-</div>
-<div class="card-body text-center card-body shadow-lg p-3 mb-5 bg-body rounded">
-    <h5 class="card-title">LLIB METAR TAF/📣 תחזית ראש פינה</h5>
+<div style={{ display :"flex", justifyContent:"center"}}>
+    <div class="card shadow p-3 mb-5 bg-white rounded" style={{width: "50rem"}}>
+     <h4 class=" text-center"> נמל תעופה ראש פינה  </h4>
+     <p class="text-center">שדה תעופה ראש פינה הוא שדה צפוני וקרוב לכנרת  - <br></br><a href="https://www.gov.il/BlobFolder/generalpage/roashpina-airport/he/aip_roshpina-llib.pdf" target="_blank">aip- Rosh Pina</a></p>
+    <p class="card-title text-center">LLIB METAR TAF/ תחזית ראש פינה </p>
     <br></br>
-    <button type="button" class="btn btn-primary " onClick={()=>setActive4(!isActive4)}>{isActive4? "פחות...  -":"עוד...  +"}</button>
-    {isActive4&& <p class="card-text" >{ <WeatherAPI  city="Tiberias"></WeatherAPI>}</p>}
+    <button type="button" class="btn btn-success" onClick={()=>setActive4(!isActive4)}>{isActive4? "פחות ":"עוד "}</button>
+    {isActive4&& <p class="card-text" >{ <WeatherAPI  city="haifa"></WeatherAPI>}</p>}
 
-  </div>
 </div>
+
+</div>
+
 
 )
 

@@ -8,22 +8,16 @@ const LLHA =(props)=>{
 //using API for weather to airport
 
     return(
-    <div>
-<h1  class="text-center"> טייס נכבד</h1>
-<h4 class="text-center">לנוחותך, פרטים על שדה חיפה  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
-     <div class="card mb-3 text-center">
-  <div class="card-body">
-    <h5 class="card-title">LLHA - A.I.P / חיפה</h5>
-    <p class="card-text">שדה תעופה חיפה הוא צפוני, בעיר חיפה, הוא שדה תעופה בנלאומי- <br></br><a href="https://www.gov.il/BlobFolder/generalpage/haifa-airport/he/aip_haifa-llha.pdf" target="_blank">aip- haifa</a></p>
-  </div>
-</div>
-<div class="card-body text-center card-body shadow-lg p-3 mb-5 bg-body rounded">
-    <h5 class="card-title">LLHA METAR TAF/ 📣תחזית חיפה</h5>
+<div style={{ display :"flex", justifyContent:"center"}}>
+    <div class="card shadow p-3 mb-5 bg-white rounded" style={{width: "50rem"}}>
+     <h4 class=" text-center"> נמל תעופה חיפה  </h4>
+     <p class="text-center">שדה תעופה חיפה הוא צפוני, בעיר חיפה, הוא שדה תעופה בנלאומי- <br></br><a href="https://www.gov.il/BlobFolder/generalpage/haifa-airport/he/aip_haifa-llha.pdf" target="_blank">aip- haifa</a></p>
+    <p class="card-title text-center">LLHA METAR TAF/ תחזית חיפה</p>
     <br></br>
-    <button class="btn btn-primary" onClick={()=>setActive2(!isActive2)}>{isActive2? "פחות... -":"עוד...  +"}</button>
+    <button type="button" class="btn btn-success" onClick={()=>setActive2(!isActive2)}>{isActive2? "פחות ":"עוד "}</button>
     {isActive2&& <p class="card-text" >{ <WeatherAPI  city="haifa"></WeatherAPI>}</p>}
 
-  </div>
+</div>
 
 </div>
 

@@ -8,26 +8,16 @@ const LLBG =(props)=>{
 //using API for weather to airport
 
     return(
-    <div>
-     <h1  class=" text-center"> טייס נכבד</h1>
-      <h4 class=" text-center">לנוחותך, פרטים על שדה בן גוריון  להקלה על ההגעה ובהתאם להוראות בטיחות  בתעופה</h4>
-     <div class="card mb-3">
-  
-</div>     
-<div class="card mb-3  text-center">
-  <div class="card-body">
-    <h5 class="card-title">LLBG - A.I.P/ בן גוריון </h5>
-    <p >שדה תעופה בן גוריון הוא שדה תעופה מרכזי בישראל  ושדה תעופה בנלאומי<br></br><a href="https://www.gov.il/en/Departments/General/electronic-aip" target="_blank">aip- Ben Gurion</a></p>
-  </div>
-
-
-  <div class="card-body   card-body shadow-lg p-3 mb-5 bg-body rounded">
-    <h5 class="card-title">LLBG METAR TAF/ 📣תחזית בן גוריון</h5>
+      <div style={{ display :"flex", justifyContent:"center"}}>
+    <div class="card shadow p-3 mb-5 bg-white rounded" style={{width: "50rem"}}>
+     <h4 class=" text-center"> נמל תעופה בן גוריון </h4>
+    <p class="text-center">שדה תעופה בן גוריון הוא שדה תעופה מרכזי בישראל  ושדה תעופה בנלאומי<br></br><a href="https://www.gov.il/en/Departments/General/electronic-aip" target="_blank">aip- Ben Gurion</a></p>
+    <p class="card-title text-center">LLBG METAR TAF/ תחזית בן גוריון</p>
     <br></br>
-    <button class="btn btn-primary" onClick={()=>setActive3(!isActive3)}>{isActive3? "פחות... -":"עוד...  +"}</button>
+    <button type="button" class="btn btn-success" onClick={()=>setActive3(!isActive3)}>{isActive3? "פחות ":"עוד "}</button>
     {isActive3&& <p class="card-text" >{ <WeatherAPI  city="haifa"></WeatherAPI>}</p>}
 
-  </div>
+  
 
 </div>
 
