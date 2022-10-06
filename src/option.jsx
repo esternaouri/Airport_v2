@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 
 const OP = () => {
+    //this is the airports option compopnents. whene you imsert one option you get details about the airport.
+    //default is BEN GURION airpot.
        const[value,setValue]=React.useState("ben-Gurion");
 
 return(
@@ -27,7 +29,7 @@ return(
 }
 
 const ForLink=(props)=>{
-
+//attched a detail page for each airport.
 if(props.value=="Herzzelya"){
     return(
         
